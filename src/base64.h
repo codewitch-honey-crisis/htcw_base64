@@ -46,4 +46,70 @@ int base64_encode(base64_context_t* context,char* out_buffer, size_t* in_out_siz
 #ifdef __cplusplus
 }
 #endif
+
+#if 0 // DEMO
+#include <stdio.h>
+#include "base64.h"
+
+static int file_read(void* state) {
+    if (state == NULL) {
+        return -1;
+    }
+    return fgetc((FILE*)state);
+}
+int main() {
+    base64_context_t ctx;
+    // encode
+    char buffer[1024];
+    size_t len;
+    int result;
+    FILE* file_src = fopen("test.jpg", "rb");
+    if (file_src == NULL) {
+        puts("File not found");
+        return 1;
+    }
+    FILE* file_dst = fopen("test.b64", "wb");
+    base64_init(file_read, file_src, &ctx);
+    len = sizeof(buffer);
+    do {
+        result = base64_encode(&ctx, (uint8_t*)buffer, &len);
+        fwrite(buffer, 1, len, file_dst);
+        len = sizeof(buffer);
+
+    } while (result > 0);
+    if (result < 0) {
+        puts("error");
+    } else {
+        puts("done");
+    }
+    fclose(file_src);
+    fclose(file_dst);
+
+    // decode
+    file_src = fopen("test.b64", "rb");
+    if (file_src == NULL) {
+        puts("File not found");
+        return 1;
+    }
+    file_dst = fopen("test2.jpg", "wb");
+    base64_init(file_read, file_src, &ctx);
+    len = sizeof(buffer);
+    do {
+        result = base64_decode(&ctx, (uint8_t*)buffer, &len);
+        fwrite(buffer, 1, len, file_dst);
+        len = sizeof(buffer);
+    } while (result > 0);
+    puts("");
+    if (result < 0) {
+        puts("error");
+    } else {
+        puts("done");
+    }
+    fclose(file_src);
+    fclose(file_dst);
+
+    return 0;
+}
+#endif // DEMO
+
 #endif // HTCW_BASE64_H
