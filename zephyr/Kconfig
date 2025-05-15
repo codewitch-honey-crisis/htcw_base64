@@ -1,0 +1,7 @@
+menu "htcw_base64 configuration"
+  config HTCW_BASE64
+    bool "Enable HTCW_BASE64"
+    depends on C
+    select REQUIRES_FULL_LIBC
+    default n
+endmenu

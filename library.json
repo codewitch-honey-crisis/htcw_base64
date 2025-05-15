@@ -1,0 +1,29 @@
+{
+    "name": "htcw_base64",
+    "version": "0.1.0",
+    "description": "Provides methods for encoding and decoding base64 content",
+    "keywords": ["io","base64"],
+    "authors": {
+        "name":"honey the codewitch",
+        "homepage": "https://www.codeproject.com/Members/code-witch"
+    },
+    "license": "MIT",
+    "frameworks": "*",
+    "platforms": "*",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/codewitch-honey-crisis/htcw_base64.git"
+    },
+    "examples": [
+        {
+            "name": "Demo",
+            "base": "examples/demo",
+            "files": [
+                "platformio.ini",
+                "src/main.cpp"
+            ]
+        }
+    ]
+
+}
