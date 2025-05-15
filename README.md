@@ -2,6 +2,12 @@
 
 A streaming encoder/decoder for base64 data
 
+- Requires very little memory
+- Validates the input
+- Flexible input source
+- Uses any output buffer size you give it
+- Straight C, no dependencies other than the C runtimes.
+
 ### Example:
 ```c
 #include <ctype.h>
