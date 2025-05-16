@@ -23,7 +23,9 @@ int base64_init(base64_on_read_callback on_read, void* on_read_state,
     if (on_read == NULL || out_context == NULL) {
         return -1;  // invalid arg
     }
-    memset(out_context, 0, sizeof(base64_context_t));
+    out_context->rem = 0;
+    out_context->out = 0;
+    out_context->triplet = 0;
     out_context->state = -1;
     out_context->on_read = on_read;
     out_context->on_read_state = on_read_state;

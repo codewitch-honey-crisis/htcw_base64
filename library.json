@@ -1,6 +1,6 @@
 {
     "name": "htcw_base64",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Provides methods for encoding and decoding base64 content",
     "keywords": ["io","base64"],
     "authors": {
