@@ -1,5 +1,7 @@
+// htcw_base64 - Copyright (C) 2025 by honey the codewitch. MIT license
 #ifndef HTCW_BASE64_H
 #define HTCW_BASE64_H
+
 #include <stddef.h>
 #include <stdint.h>
 
