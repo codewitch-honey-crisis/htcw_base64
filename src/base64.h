@@ -2,8 +2,11 @@
 #define HTCW_BASE64_H
 #include <stddef.h>
 #include <stdint.h>
+
+/// @brief Reads a byte from the input stream. Returns the byte, or -1 if no more data
 typedef int(*base64_on_read_callback)(void*);
 
+/// @brief The base64 context
 typedef struct {
     int state;
     base64_on_read_callback on_read;
